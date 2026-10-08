@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายละเอียดหอพัก | The freshy living complex</title>
+  <meta name="description"
+    content="หน้ารายละเอียดหอพัก วิเคราะห์คะแนน 6 มิติ สรุปรีวิวโดย AI รูปถ่ายจริงจากผู้พัก และแผนที่ Google Maps">
+
+  <!-- Google Fonts: Prompt & Kanit & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=Prompt:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+            },
+            accent: {
+              purple: '#7c3aed',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              rose: '#f43f5e'
+            }
+          },
+          fontFamily: {
+            sans: ['Prompt', 'Kanit', 'sans-serif'],
+            display: ['Outfit', 'Prompt', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .glass-card {
+        @apply bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-sm rounded-2xl;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- ==================== HEADER NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.php" class="flex items-center gap-3 cursor-pointer">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-accent-purple to-pink-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+            <i class="fa-solid fa-building-user"></i>
+          </div>
+          <div>
+            <span
+              class="text-xl font-bold bg-gradient-to-r from-brand-600 to-accent-purple bg-clip-text text-transparent">JingJai</span>
+            <span class="text-[10px] block font-semibold text-slate-500 -mt-1">ค้นหาหอพักนิสิต & AI สรุปรีวิว</span>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+          <a href="index.php"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all text-slate-600 hover:text-brand-600">
+            <i class="fa-solid fa-list-ul mr-1.5"></i> รายการหอพัก
+          </a>
+          <a href="maid-service.php?dorm=The%20freshy%20living%20complex"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all text-pink-700 hover:bg-pink-100 hover:text-pink-800 flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-broom text-pink-500"></i> จองแม่บ้าน
+          </a>
+          <a href="moving-service.php?dorm=The%20freshy%20living%20complex"
+            class="px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all text-amber-700 hover:bg-amber-100 hover:text-amber-800 flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-truck-moving text-amber-500"></i> จองรถขนของ
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="index.php"
+            class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-3.5 py-2 rounded-xl text-xs transition-colors flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าหลัก
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ==================== DORM DETAIL CONTAINER ==================== -->
+  <main id="detail-page-container" class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- Back button & Navigation -->
+    <div
+      class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs">
+      <a href="index.php" class="text-xs font-semibold text-brand-600 hover:underline flex items-center gap-1.5">
+        <i class="fa-solid fa-chevron-left"></i> กลับไปค้นหาหอพัก
+      </a>
+      <span class="text-xs text-slate-400">รหัสหอพัก: #DORM-FRESHY-01</span>
+    </div>
+
+    <!-- Header Banner -->
+    <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl relative overflow-hidden space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span id="detail-uni-name"
+          class="bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-lg">มมส. (มอใหม่)</span>
+        <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-lg">📍 Google Maps Enabled</span>
+        <span class="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-lg">🏋️ มีฟิตเนส & โรงอาหาร</span>
+      </div>
+      <h1 id="detail-dorm-name" class="text-2xl sm:text-3xl font-extrabold text-white">หอเฟรชชี่ (The freshy living complex)</h1>
+      <p id="detail-address" class="text-xs sm:text-sm text-slate-300 flex items-center gap-1.5">
+        <i class="fa-solid fa-location-dot text-rose-400"></i> ต.ขามเรียง อ.กันทรวิชัย จ.มหาสารคาม (ใกล้มหาวิทยาลัยมหาสารคาม)
+      </p>
+    </div>
+
+    <!-- ==================== PHOTO GALLERY (ย้ายมาไว้บนสุด) ==================== -->
+    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <i class="fa-solid fa-camera text-slate-600"></i> รูปถ่ายหอพัก
+          </h3>
+          <p class="text-xs text-slate-500">คลิกที่รูปภาพเพื่อเปิดดูภาพขนาดใหญ่เต็มจอ (Lightbox)</p>
+        </div>
+
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+          <button id="photo-tab-student" onclick="switchDetailPhotoTab('STUDENT')"
+            class="px-4 py-2 rounded-xl transition-all bg-white text-brand-600 shadow-xs cursor-pointer">
+            📷 รูปภายในห้องพัก
+          </button>
+          <button id="photo-tab-landlord" onclick="switchDetailPhotoTab('LANDLORD')"
+            class="px-4 py-2 rounded-xl transition-all text-slate-600 hover:text-brand-600 cursor-pointer">
+            🏢 รูปตึก & ส่วนกลาง
+          </button>
+        </div>
+      </div>
+
+      <!-- Photo Grid Container -->
+      <div id="photos-gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Key Metrics Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs text-center">
+        <span class="text-xs font-semibold text-slate-500 block">ค่าเช่ารายเดือน</span>
+        <span id="detail-price" class="text-2xl font-extrabold text-brand-600">4,500</span> <span
+          class="text-xs text-slate-500">บาท</span>
+      </div>
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs text-center flex flex-col justify-between">
+        <div>
+          <span class="text-xs font-semibold text-slate-500 block">ค่าน้ำ / ค่าไฟ</span>
+          <span class="text-base font-extrabold text-slate-800"><span id="detail-water-rate">25</span>฿ / <span
+              id="detail-electric-rate">7</span>฿</span>
+        </div>
+        <a id="detail-calc-link" href="calculator.php" class="text-[11px] text-emerald-600 hover:text-emerald-800 font-bold inline-flex items-center justify-center gap-1 hover:underline mt-1">
+          <i class="fa-solid fa-calculator text-[10px]"></i> คำนวณค่าน้ำไฟ
+        </a>
+      </div>
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs text-center">
+        <span class="text-xs font-semibold text-slate-500 block">ระยะทางเดินถึง ม.</span>
+        <span id="detail-walk" class="text-base font-extrabold text-emerald-600">🚶 5-7 นาที</span>
+      </div>
+      <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 shadow-2xs text-center">
+        <span class="text-xs font-semibold text-slate-600 block">คะแนนรีวิวนิสิต</span>
+        <span id="detail-rating" class="text-2xl font-extrabold text-amber-600">⭐ 4.6 / 5</span>
+      </div>
+    </div>
+
+    <!-- ==================== DORM SPECIAL SERVICES BANNER (MAID & MOVING) ==================== -->
+    <div
+      class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-5 sm:p-6 rounded-3xl shadow-xl border border-slate-800 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-brand-500 flex items-center justify-center text-xs text-white shadow-xs">
+              <i class="fa-solid fa-sparkles"></i>
+            </span>
+            บริการเสริมพิเศษสำหรับหอพักนี้
+          </h2>
+          <p class="text-xs text-slate-300">กดจองบริการได้ทันที ข้อมูลหอพักจะถูกส่งไปยังระบบบริการ</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Maid Box -->
+        <div
+          class="bg-white/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-pink-500/30 hover:border-pink-400 transition-all flex flex-col justify-between space-y-3 group">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-400 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-broom"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm sm:text-base">จองแม่บ้านทำความสะอาด</h3>
+                <span
+                  class="bg-pink-500/30 text-pink-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-pink-400/30">เริ่มต้น 350฿</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">คลีนห้องก่อนเข้าพัก / ล้างแอร์หอพัก / คลีนคืนห้องย้ายออก</p>
+            </div>
+          </div>
+          <a href="maid-service.php?dorm=The%20freshy%20living%20complex"
+            class="w-full bg-pink-600 hover:bg-pink-700 text-white text-xs font-bold py-2.5 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-broom"></i> จองแม่บ้านทำความสะอาดหอนี้
+          </a>
+        </div>
+
+        <!-- Moving Box -->
+        <div
+          class="bg-white/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-amber-500/30 hover:border-amber-400 transition-all flex flex-col justify-between space-y-3 group">
+          <div class="flex items-start gap-3.5">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-600 to-orange-400 text-white flex items-center justify-center text-xl shadow-md group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-truck-moving"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm sm:text-base">จองรถรับจ้างขนย้ายของ</h3>
+                <span
+                  class="bg-amber-500/30 text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded-full border border-amber-400/30">เริ่มต้น 200฿</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">รถกระบะตู้ทึบ / พ่วงข้าง พร้อมคนช่วยยก ขนเข้าหอนี้</p>
+            </div>
+          </div>
+          <a href="moving-service.php?dorm=The%20freshy%20living%20complex"
+            class="w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold py-2.5 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-truck-moving"></i> จองรถขนของย้ายมาหอนี้
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOOGLE MAPS EMBED SECTION -->
+    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-map-location-dot text-emerald-600"></i> แผนที่ Google Maps ตำแหน่งจริงของหอพัก
+          </h2>
+          <p class="text-xs text-slate-500">ซูมเข้า-ออก หรือเลื่อนดูแผนที่เพื่อสำรวจซอยและบริเวณรอบๆ หอเฟรชชี่</p>
+        </div>
+        <a id="google-map-btn" href="https://maps.google.com/?q=The+freshy+living+complex+Maha+Sarakham" target="_blank" rel="noopener noreferrer"
+          class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+          <i class="fa-solid fa-route"></i> เปิดใน Google Maps นำทาง
+        </a>
+      </div>
+
+      <div class="w-full h-80 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+        <iframe id="google-map-iframe" class="w-full h-full"
+          src="https://maps.google.com/maps?q=The%20freshy%20living%20complex%20Maha%20Sarakham&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- AI REVIEW SUMMARY BOX -->
+    <div
+      class="bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 text-white p-6 rounded-3xl shadow-xl space-y-4">
+      <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+        <div class="w-10 h-10 rounded-xl bg-purple-600 flex items-center justify-center text-lg">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-base sm:text-lg flex items-center gap-2">
+            <span>AI สรุปรีวิวนิสิตอัตโนมัติ (NLP Summary)</span>
+          </h3>
+          <p class="text-xs text-slate-300">รวบรวมและวิเคราะห์จุดเด่น-ข้อควรทราบจากรีวิวผู้เคยพักจริง</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Pros -->
+        <div class="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-emerald-500/30">
+          <h4 class="font-bold text-emerald-400 mb-3 flex items-center gap-2 text-sm">
+            <i class="fa-solid fa-circle-check"></i> ข้อดีสรุปโดย AI
+          </h4>
+          <ul id="detail-ai-pros" class="space-y-2 text-xs text-slate-200">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> <span>สิ่งอำนวยความสะดวกครบครัน มีห้องฟิตเนสออกกำลังกายและโรงอาหาร The Freshy Cuisine ภายในโครงการ[cite: 2, 7]</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> <span>เฟอร์นิเจอร์บิวท์อินแน่น โต๊ะทำงานคู่ ทีวี ไมโครเวฟ และตู้เย็น พร้อมเข้าอยู่ได้ทันที[cite: 4]</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> <span>ที่จอดรถกว้างขวาง มีหลังคากันแดดกันฝนรองรับทั้งรถยนต์และมอเตอร์ไซค์[cite: 3]</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> <span>ห้องน้ำแยกโซนเปียก-แห้งเป็นสัดส่วน พร้อมเครื่องทำน้ำอุ่น[cite: 5]</span></li>
+          </ul>
+        </div>
+
+        <!-- Considerations -->
+        <div class="bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-amber-500/30">
+          <h4 class="font-bold text-amber-400 mb-3 flex items-center gap-2 text-sm">
+            <i class="fa-solid fa-triangle-exclamation"></i> ข้อควรทราบสรุปโดย AI
+          </h4>
+          <ul id="detail-ai-cons" class="space-y-2 text-xs text-slate-200">
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-info text-amber-400 mt-0.5"></i> <span>ช่วงเวลาเร่งด่วนในโซนโรงอาหารหรือลานจอดรถอาจมีคนใช้งานหนาแน่น[cite: 2, 3]</span></li>
+            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-info text-amber-400 mt-0.5"></i> <span>เนื่องจากมีพื้นที่ส่วนกลางค่อนข้างครบ ค่าเช่าอาจอยู่ในระดับปานกลางค่อนไปทางสูงสำหรับบางห้อง</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 DIMENSIONS RATINGS BREAKDOWN -->
+    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <h3 class="font-bold text-slate-900 text-base">⭐ คะแนนประเมิน 6 มิติจากนิสิตจริง</h3>
+      <div id="ratings-bars-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span>ความเงียบสงบในห้องพัก</span>
+            <span class="text-brand-600 font-bold">4.5 / 5.0</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span>คุณภาพน้ำประปา / แรงดันน้ำ</span>
+            <span class="text-brand-600 font-bold">4.6 / 5.0</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 92%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span>ความเร็วและความเสถียร Wi-Fi</span>
+            <span class="text-brand-600 font-bold">4.8 / 5.0</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 96%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span>ระบบความปลอดภัย & รปภ.</span>
+            <span class="text-brand-600 font-bold">4.7 / 5.0</span>
+          </div>
+          <div class="w-full bg-brand-500/20 rounded-full h-2">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 94%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span>ความสะอาดส่วนกลาง & ขยะ</span>
+            <span class="text-brand-600 font-bold">4.6 / 5.0</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 92%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span>การดูแลของนิติบุคคล / ช่างซ่อม</span>
+            <span class="text-brand-600 font-bold">4.5 / 5.0</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPECIALIZED BREAKDOWNS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between border-b pb-2 border-slate-100">
+          <span class="font-bold text-xs text-slate-800 flex items-center gap-1.5">
+            <i class="fa-solid fa-wifi text-brand-600"></i> Wi-Fi & Internet
+          </span>
+          <span class="font-extrabold text-xs text-brand-600">4.8 / 5</span>
+        </div>
+        <p class="text-xs bg-brand-50 text-brand-800 p-2.5 rounded-xl border border-brand-100 leading-relaxed italic">
+          "เน็ตไฟเบอร์แยกชั้น สปีดนิ่งมาก เล่นเกมและส่งการบ้านช่วงดึกไม่ค่อยสะดุด"
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between border-b pb-2 border-slate-100">
+          <span class="font-bold text-xs text-slate-800 flex items-center gap-1.5">
+            <i class="fa-solid fa-volume-xmark text-indigo-600"></i> ความเงียบสงบ
+          </span>
+          <span class="font-extrabold text-xs text-indigo-600">4.5 / 5</span>
+        </div>
+        <p class="text-xs bg-indigo-50 text-indigo-800 p-2.5 rounded-xl border border-indigo-100 leading-relaxed italic">
+          "ห้องเก็บเสียงได้ค่อนข้างดี นิติเข้มงวดเรื่องงดใช้เสียงหลัง 4 ทุ่ม พักผ่อนได้สบาย"
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+        <div class="flex items-center justify-between border-b pb-2 border-slate-100">
+          <span class="font-bold text-xs text-slate-800 flex items-center gap-1.5">
+            <i class="fa-solid fa-faucet-drip text-cyan-600"></i> น้ำประปา
+          </span>
+          <span class="font-extrabold text-xs text-cyan-600">4.6 / 5</span>
+        </div>
+        <p class="text-xs bg-cyan-50 text-cyan-800 p-2.5 rounded-xl border border-cyan-100 leading-relaxed italic">
+          "น้ำใสแรงดี มีแท็งก์สำรองขนาดใหญ่ ไม่มีปัญหาเรื่องน้ำไม่ไหลช่วงสอบ"
+        </p>
+      </div>
+    </div>
+
+    <!-- ==================== STUDENT REVIEWS SECTION ==================== -->
+    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+        <div>
+          <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i> รีวิวจากนิสิตผู้พักจริง (Student Reviews)
+          </h3>
+          <p class="text-xs text-slate-500">แชร์ประสบการณ์จริงเรื่องการอยู่อาศัย สภาพแวดล้อม และบริการ</p>
+        </div>
+        <button onclick="toggleReviewForm()"
+          class="bg-brand-50 hover:bg-brand-100 text-brand-700 font-semibold px-4 py-2 rounded-xl text-xs transition-colors flex items-center gap-1.5 cursor-pointer">
+          <i class="fa-solid fa-pen-to-square"></i> เขียนรีวิวของคุณ
+        </button>
+      </div>
+
+      <!-- Form เขียนรีวิว -->
+      <div id="add-review-form" class="hidden bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+        <h4 class="text-sm font-bold text-slate-800">แบ่งปันความคิดเห็นเกี่ยวกับหอนี้</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <input type="text" id="reviewer-name" placeholder="ชื่อหรือนามสมมุติ (เช่น นิสิต IT ปี 3)"
+            class="text-xs p-3 bg-white rounded-xl border border-slate-300 outline-none focus:ring-2 focus:ring-brand-500">
+          <select id="reviewer-rating"
+            class="text-xs p-3 bg-white rounded-xl border border-slate-300 outline-none focus:ring-2 focus:ring-brand-500">
+            <option value="5">⭐⭐⭐⭐⭐ ให้ 5 ดาว (ยอดเยี่ยมมาก)</option>
+            <option value="4">⭐⭐⭐⭐ ให้ 4 ดาว (ดีมาก)</option>
+            <option value="3">⭐⭐⭐ ให้ 3 ดาว (ปานกลาง)</option>
+            <option value="2">⭐⭐ ให้ 2 ดาว (ต้องปรับปรุง)</option>
+            <option value="1">⭐ ให้ 1 ดาว (ไม่แนะนำ)</option>
+          </select>
+        </div>
+        <textarea id="reviewer-comment" rows="3" placeholder="เขียนรีวิวของคุณ เช่น บรรยากาศห้อง, เน็ต, ที่จอดรถ, นิติบุคคล..."
+          class="w-full text-xs p-3 bg-white rounded-xl border border-slate-300 outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+        <div class="flex justify-end gap-2">
+          <button onclick="toggleReviewForm()" class="text-xs px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-200">ยกเลิก</button>
+          <button onclick="submitReview()"
+            class="text-xs bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2 rounded-xl transition-colors">ส่งรีวิว</button>
+        </div>
+      </div>
+
+      <!-- Review Cards List Container -->
+      <div id="reviews-list-container" class="space-y-4">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- STUDENT Q&A -->
+    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+          <i class="fa-solid fa-comments text-brand-600"></i> ถาม-ตอบกับผู้เคยพักจริง (Student Q&A)
+        </h3>
+        <button onclick="toggleAddQaForm()"
+          class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3.5 py-2 rounded-xl transition-colors cursor-pointer">
+          + ถามคำถามใหม่
+        </button>
+      </div>
+
+      <div id="qa-form" class="hidden bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+        <input type="text" id="qa-name-input" placeholder="ชื่อ/ฉายาของคุณ"
+          class="w-full text-xs p-3 rounded-xl border border-slate-300">
+        <textarea id="qa-text-input" rows="2" placeholder="พิมพ์คำถามเกี่ยวกับหอนี้..."
+          class="w-full text-xs p-3 rounded-xl border border-slate-300"></textarea>
+        <div class="flex justify-end gap-2">
+          <button onclick="toggleAddQaForm()" class="text-xs px-4 py-2 rounded-xl text-slate-600">ยกเลิก</button>
+          <button onclick="submitNewQuestion()"
+            class="text-xs bg-brand-600 text-white font-semibold px-5 py-2 rounded-xl">ส่งคำถาม</button>
+        </div>
+      </div>
+
+      <div id="qa-list-container" class="space-y-3">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+          <p class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+            <span class="bg-brand-100 text-brand-700 px-1.5 py-0.5 rounded text-[10px]">ถาม</span>
+            ที่จอดรถยนต์เต็มบ่อยไหมครับ มีค่าจอดรายเดือนเพิ่มหรือเปล่า?
+          </p>
+          <p class="text-xs text-slate-600 pl-4 border-l-2 border-brand-500">
+            <span class="font-semibold text-slate-800">นิสิตผู้พักจริง:</span> มีหลังคาจอดฟรีทั้งมอไซค์และรถยนต์ครับ มีช่องจอดเยอะ แต่ช่วงค่ำวันอาทิตย์อาจจะแน่นนิดหน่อยแต่ก็ยังมีที่จอดตลอดครับ[cite: 3]
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== IMAGE LIGHTBOX MODAL ==================== -->
+  <div id="lightbox-modal"
+    class="hidden fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300"
+    onclick="closeLightbox(event)">
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()"
+        class="absolute -top-12 right-0 sm:-right-4 text-white text-3xl p-2 hover:text-rose-400 transition-colors cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="lightbox-img" src="" alt="ภาพขยายขนาดใหญ่"
+        class="max-w-full max-h-[82vh] object-contain rounded-2xl shadow-2xl border border-white/20">
+      <p id="lightbox-caption" class="text-white/80 text-xs sm:text-sm mt-3 text-center font-medium"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+      <p class="font-semibold text-slate-300">JingJai - ระบบค้นหาและวิเคราะห์รีวิวหอพักนิสิตมหาวิทยาลัยด้วย AI</p>
+      <p class="text-slate-500">ออกแบบด้วย Tailwind CSS & Google Maps Integration Ready</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MOCKUP DATA & LOGIC SCRIPTS ==================== -->
+  <script>
+    // 1. Mockup Data ของหอเฟรชชี่ (The freshy living complex)
+    const freshyDormData = {
+      photos: {
+        student: [
+          { url: "images/freshy-room.jpg", title: "โต๊ะทำงาน ทีวี ไมโครเวฟ และตู้เย็นในห้องพัก" },
+          { url: "images/freshy-bed.jpg", title: "เตียงนอนและผนังหัวเตียงบิวท์อิน" },
+          { url: "images/freshy-toilet.jpg", title: "ห้องน้ำแยกโซนเปียกแห้งพร้อมเครื่องทำน้ำอุ่น" }
+        ],
+        landlord: [
+          { url: "images/freshy-building.jpg", title: "ภาพรวมภายนอกอาคารและลานจอดรถมีหลังคา" },
+          { url: "images/freshy-fitness.jpg", title: "ห้องฟิตเนสพร้อมอุปกรณ์ออกกำลังกายครบครัน" },
+          { url: "images/freshy-cuisine.jpg", title: "The Freshy Cuisine โรงอาหารและร้านอาหารภายในหอพัก" }
+        ]
+      },
+      reviews: [
+        {
+          id: 1,
+          name: "พัทธนันท์ (นิสิตบัญชีฯ ปี 3)",
+          rating: 5,
+          date: "12 ก.พ. 2026",
+          roomType: "ห้อง Deluxe ชั้น 3",
+          comment: "ชอบตรงที่มีไมโครเวฟกับตู้เย็นให้ในตัวเลย โต๊ะอ่านหนังสือยาวนั่งทำโปรเจกต์สองคนได้สบายมาก โรงอาหารข้างล่างสะดวกสุดๆ วันไหนขี้เกียจออกไปข้างนอกก็กินข้างล่างได้เลย"
+        },
+        {
+          id: 2,
+          name: "กิตติกร (นิสิตวิศวะฯ ปี 2)",
+          rating: 5,
+          date: "28 ม.ค. 2026",
+          roomType: "ห้อง Standard ชั้น 4",
+          comment: "ฟิตเนสคือจุดเด่นเลย ลู่วิ่งกับดัมเบลมีให้เล่นครบ ไม่ต้องเสียตังค์ไปสมัครยิมข้างนอก เน็ตเสถียร เล่นเกมตีป้อมช่วงดึกปิงไม่แกว่ง คุ้มราคาครับ"
+        },
+        {
+          id: 3,
+          name: "ณิชานันท์ (นิสิตมนุษย์ฯ ปี 4)",
+          rating: 4,
+          date: "15 ม.ค. 2026",
+          roomType: "ห้อง Corner ชั้น 2",
+          comment: "ห้องน้ำสะอาด แยกเปียกแห้งดีมากค่ะ นิติพูดจาเพราะและบริการรวดเร็ว แจ้งเปลี่ยนหลอดไฟวันเดียวมาทำเลย หัก 1 ดาวตรงที่ช่วงเที่ยงที่จอดรถมอไซค์หน้าโรงอาหารจะแน่นหน่อยค่ะ"
+        }
+      ]
+    };
+
+    let currentPhotoCategory = 'STUDENT';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPhotos('STUDENT');
+      renderReviews();
+    });
+
+    // 2. สลับแท็บและ Render รูปภาพ
+    function switchDetailPhotoTab(type) {
+      currentPhotoCategory = type;
+      const tabStudent = document.getElementById('photo-tab-student');
+      const tabLandlord = document.getElementById('photo-tab-landlord');
+
+      if (type === 'STUDENT') {
+        tabStudent.className = 'px-4 py-2 rounded-xl transition-all bg-white text-brand-600 shadow-xs cursor-pointer';
+        tabLandlord.className = 'px-4 py-2 rounded-xl transition-all text-slate-600 hover:text-brand-600 cursor-pointer';
+        renderPhotos('student');
+      } else {
+        tabLandlord.className = 'px-4 py-2 rounded-xl transition-all bg-white text-brand-600 shadow-xs cursor-pointer';
+        tabStudent.className = 'px-4 py-2 rounded-xl transition-all text-slate-600 hover:text-brand-600 cursor-pointer';
+        renderPhotos('landlord');
+      }
+    }
+
+    function renderPhotos(categoryKey) {
+      const container = document.getElementById('photos-gallery-grid');
+      const list = categoryKey === 'STUDENT' || categoryKey === 'student'
+        ? freshyDormData.photos.student
+        : freshyDormData.photos.landlord;
+
+      container.innerHTML = list.map(item => `
+        <div class="group relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-4/3 cursor-pointer shadow-2xs hover:shadow-md transition-all"
+          onclick="openLightbox('${item.url}', '${item.title}')">
+          <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+            <span class="text-white text-xs font-medium flex items-center gap-1.5">
+              <i class="fa-solid fa-magnifying-glass-plus text-amber-400"></i> ${item.title}
+            </span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 3. ฟังก์ชัน Lightbox Modal คลิกดูรูปใหญ่
+    function openLightbox(url, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+
+      img.src = url;
+      cap.textContent = caption || 'รูปภาพหอพัก The freshy living complex';
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // กด ESC เพื่อปิด Lightbox
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // 4. Render รีวิวจากนิสิต
+    function renderReviews() {
+      const container = document.getElementById('reviews-list-container');
+      container.innerHTML = freshyDormData.reviews.map(rev => `
+        <div class="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-slate-50/50 space-y-2 hover:bg-white hover:shadow-xs transition-all">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 font-bold flex items-center justify-center text-xs">
+                ${rev.name.charAt(0)}
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-slate-900">${rev.name}</h4>
+                <span class="text-[10px] text-slate-400">${rev.roomType} • ${rev.date}</span>
+              </div>
+            </div>
+            <div class="text-amber-500 text-xs">
+              ${'⭐'.repeat(rev.rating)}
+            </div>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed pl-10">
+            "${rev.comment}"
+          </p>
+        </div>
+      `).join('');
+    }
+
+    function toggleReviewForm() {
+      const form = document.getElementById('add-review-form');
+      form.classList.toggle('hidden');
+    }
+
+    function submitReview() {
+      const name = document.getElementById('reviewer-name').value.trim();
+      const rating = parseInt(document.getElementById('reviewer-rating').value);
+      const comment = document.getElementById('reviewer-comment').value.trim();
+
+      if (!name || !comment) {
+        alert('กรุณากรอกชื่อและข้อความรีวิวให้ครบถ้วน');
+        return;
+      }
+
+      freshyDormData.reviews.unshift({
+        id: Date.now(),
+        name: name,
+        rating: rating,
+        date: "วันนี้",
+        roomType: "ผู้พักอาศัยจริง",
+        comment: comment
+      });
+
+      renderReviews();
+      toggleReviewForm();
+
+      document.getElementById('reviewer-name').value = '';
+      document.getElementById('reviewer-comment').value = '';
+      alert('บันทึกรีวิวของคุณเรียบร้อยแล้ว ขอบคุณสำหรับข้อมูลครับ!');
+    }
+
+    // QA Helper
+    function toggleAddQaForm() {
+      document.getElementById('qa-form').classList.toggle('hidden');
+    }
+
+    function submitNewQuestion() {
+      const text = document.getElementById('qa-text-input').value.trim();
+      if (!text) return;
+      alert('ส่งคำถามเรียบร้อยแล้ว ระบบจะส่งการแจ้งเตือนไปยังผู้พักจริง');
+      document.getElementById('qa-text-input').value = '';
+      toggleAddQaForm();
+    }
+  </script>
+</body>
+
+</html>

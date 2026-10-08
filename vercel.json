@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.9.0"
+    }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/api/index.php" },
+    { "source": "/index.php", "destination": "/api/index.php" },
+    { "source": "/calculator.php", "destination": "/api/calculator.php" },
+    { "source": "/compare.php", "destination": "/api/compare.php" },
+    { "source": "/dorm-detail.php", "destination": "/api/dorm-detail.php" },
+    { "source": "/login.php", "destination": "/api/login.php" },
+    { "source": "/logout.php", "destination": "/api/logout.php" },
+    { "source": "/maid-service.php", "destination": "/api/maid-service.php" },
+    { "source": "/moving-service.php", "destination": "/api/moving-service.php" }
+  ]
+}
